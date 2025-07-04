@@ -61,11 +61,11 @@ const OrderAddForm = ({ onAdd }) => {
         <input id="order-image-upload" type="file" accept="image/*" onChange={handleImageChange} ref={fileInput} className="hidden" />
         <span className="text-xs text-gray-400">Resim Yükle</span>
       </div>
-      <input type="text" placeholder="Açıklama" value={desc} onChange={(e) => setDesc(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-40 md:w-48 bg-transparent transition" />
-      <input type="number" placeholder="Tutar" value={amount} onChange={(e) => setAmount(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition" />
-      <input type="text" placeholder="Müşteri Adı" value={customer} onChange={(e) => setCustomer(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-40 md:w-48 bg-transparent transition" />
-      <input type="text" placeholder="Lokasyon" value={location} onChange={(e) => setLocation(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition" />
-      <select value={status} onChange={(e) => setStatus(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition">
+      <input type="text" placeholder="Açıklama" value={desc} onChange={(e) => setDesc(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-40 md:w-48 bg-transparent transition text-gray-900 dark:text-gray-100" />
+      <input type="number" placeholder="Tutar" value={amount} onChange={(e) => setAmount(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition text-gray-900 dark:text-gray-100" />
+      <input type="text" placeholder="Müşteri Adı" value={customer} onChange={(e) => setCustomer(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-40 md:w-48 bg-transparent transition text-gray-900 dark:text-gray-100" />
+      <input type="text" placeholder="Lokasyon" value={location} onChange={(e) => setLocation(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition text-gray-900 dark:text-gray-100" />
+      <select value={status} onChange={(e) => setStatus(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition text-gray-900 dark:text-gray-100">
         <option value="pending">Beklemede</option>
         <option value="complete">Tamamlandı</option>
         <option value="active">Aktif</option>
