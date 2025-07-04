@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { ScheduleComponent, ViewsDirective, ViewDirective, Day, Week, WorkWeek, Month, Agenda, Inject, Resize, DragAndDrop } from '@syncfusion/ej2-react-schedule';
 import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
 
@@ -8,16 +8,18 @@ import { Header } from '../components';
 // eslint-disable-next-line react/destructuring-assignment
 const PropertyPane = (props) => <div className="mt-5">{props.children}</div>;
 
+
 const Scheduler = () => {
-  const [scheduleObj, setScheduleObj] = useState();
+  const scheduleRef = useRef(null);
 
   const change = (args) => {
-    scheduleObj.selectedDate = args.value;
-    scheduleObj.dataBind();
+    if (scheduleRef.current && args.value) {
+      scheduleRef.current.selectedDate = args.value;
+      scheduleRef.current.dataBind();
+    }
   };
 
   const onDragStart = (arg) => {
-    // eslint-disable-next-line no-param-reassign
     arg.navigation.enable = true;
   };
 
@@ -26,8 +28,8 @@ const Scheduler = () => {
       <Header category="App" title="Calendar" />
       <ScheduleComponent
         height="650px"
-        ref={(schedule) => setScheduleObj(schedule)}
-        selectedDate={new Date(2021, 0, 10)}
+        ref={scheduleRef}
+        selectedDate={new Date()}
         eventSettings={{ dataSource: scheduleData }}
         dragStart={onDragStart}
       >
@@ -44,7 +46,7 @@ const Scheduler = () => {
             <tr style={{ height: '50px' }}>
               <td style={{ width: '100%' }}>
                 <DatePickerComponent
-                  value={new Date(2021, 0, 10)}
+                  value={new Date()}
                   showClearButton={false}
                   placeholder="Current Date"
                   floatLabelType="Always"
