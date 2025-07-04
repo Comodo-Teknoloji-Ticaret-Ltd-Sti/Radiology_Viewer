@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Radiology_Viewer/static/css/main.b3e67216.css",
-    "main.js": "/Radiology_Viewer/static/js/main.616a1b0a.js",
+    "main.css": "/Radiology_Viewer/static/css/main.21f51b0e.css",
+    "main.js": "/Radiology_Viewer/static/js/main.25b8b7dc.js",
     "static/media/product4.jpg": "/Radiology_Viewer/static/media/product4.767417bea17688d6d8ce.jpg",
     "static/media/product2.jpg": "/Radiology_Viewer/static/media/product2.e93f12ec1b20980a1bd1.jpg",
     "static/media/product1.jpg": "/Radiology_Viewer/static/media/product1.b8efc7a24c281ed8911b.jpg",
@@ -14,11 +14,11 @@
     "static/media/avatar4.jpg": "/Radiology_Viewer/static/media/avatar4.f56b774f77caaf2f6921.jpg",
     "static/media/product5.jpg": "/Radiology_Viewer/static/media/product5.f4c5d8f991b753ca0fcc.jpg",
     "index.html": "/Radiology_Viewer/index.html",
-    "main.b3e67216.css.map": "/Radiology_Viewer/static/css/main.b3e67216.css.map",
-    "main.616a1b0a.js.map": "/Radiology_Viewer/static/js/main.616a1b0a.js.map"
+    "main.21f51b0e.css.map": "/Radiology_Viewer/static/css/main.21f51b0e.css.map",
+    "main.25b8b7dc.js.map": "/Radiology_Viewer/static/js/main.25b8b7dc.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3e67216.css",
-    "static/js/main.616a1b0a.js"
+    "static/css/main.21f51b0e.css",
+    "static/js/main.25b8b7dc.js"
   ]
 }
