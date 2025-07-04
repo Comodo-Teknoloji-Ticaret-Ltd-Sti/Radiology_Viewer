@@ -36,24 +36,14 @@ export const gridOrderImage = (props) => {
     );
   }
   return (
-    <button
-      type="button"
-      className="rounded-xl h-20 md:ml-3 cursor-pointer hover:scale-105 transition-transform p-0 border-none bg-transparent"
-      onClick={() => props.onImageClick(props.order)}
-      onKeyPress={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          props.onImageClick(props.order);
-        }
-      }}
-      style={{ lineHeight: 0 }}
-    >
+    <div>
       <img
+        className="rounded-xl h-20 md:ml-3 cursor-pointer hover:scale-105 transition-transform"
         src={props.ProductImage}
         alt="order-item"
-        style={{ pointerEvents: 'none' }}
-        className="rounded-xl h-20 md:ml-3"
+        onClick={() => props.onImageClick(props.order)}
       />
-    </button>
+    </div>
   );
 };
 

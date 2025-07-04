@@ -4,7 +4,10 @@ const OrderImageModal = ({ open, onClose, order }) => {
   if (!open || !order) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 transition-all">
-      <div className="bg-white dark:bg-secondary-dark-bg rounded-2xl shadow-lg p-6 max-w-md w-full relative animate-fade-in">
+      <div
+        className="bg-white dark:bg-secondary-dark-bg rounded-2xl shadow-lg p-4 md:p-6 w-[90vw] md:w-[60vw] max-w-3xl relative animate-fade-in"
+        style={{ maxHeight: '90vh', overflowY: 'auto' }}
+      >
         <button
           type="button"
           onClick={onClose}
@@ -16,7 +19,7 @@ const OrderImageModal = ({ open, onClose, order }) => {
         <img
           src={order.ProductImage}
           alt={order.OrderItems}
-          className="w-full max-w-[480px] h-[420px] object-contain rounded-2xl mb-4 border border-gray-100 dark:border-gray-700 bg-white dark:bg-[#23243a]"
+          className="w-full max-h-[40vh] md:max-h-[60vh] object-contain rounded-2xl mb-4 border border-gray-100 dark:border-gray-700 bg-white dark:bg-[#23243a]"
         />
         <div className="text-center">
           <h2 className="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-200">{order.OrderItems}</h2>
