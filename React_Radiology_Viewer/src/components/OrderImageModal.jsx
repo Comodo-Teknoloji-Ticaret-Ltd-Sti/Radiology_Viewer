@@ -6,6 +6,7 @@ const OrderImageModal = ({ open, onClose, order }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 transition-all">
       <div className="bg-white dark:bg-secondary-dark-bg rounded-2xl shadow-lg p-6 max-w-md w-full relative animate-fade-in">
         <button
+          type="button"
           onClick={onClose}
           className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 dark:hover:text-white text-2xl font-bold focus:outline-none"
           aria-label="Kapat"

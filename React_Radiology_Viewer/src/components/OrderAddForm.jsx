@@ -1,5 +1,13 @@
+
 import React, { useRef, useState } from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
+
+// Yardımcı fonksiyon: iç içe ternary kaldırıldı
+function getStatusBg(status) {
+  if (status === 'pending') return '#FB9678';
+  if (status === 'complete') return '#8BE78B';
+  return '#03C9D7';
+}
 
 const OrderAddForm = ({ onAdd }) => {
   const [image, setImage] = useState(null);
@@ -26,7 +34,7 @@ const OrderAddForm = ({ onAdd }) => {
       CustomerName: customer,
       Location: location,
       Status: status,
-      StatusBg: status === 'pending' ? '#FB9678' : status === 'complete' ? '#8BE78B' : '#03C9D7',
+      StatusBg: getStatusBg(status),
       OrderID: Date.now(),
     });
     setImage(null);
@@ -43,21 +51,21 @@ const OrderAddForm = ({ onAdd }) => {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-center mb-8 bg-main-bg dark:bg-secondary-dark-bg p-6 rounded-2xl shadow-md w-full">
       <div className="flex flex-col items-center justify-center">
-        <label className="w-24 h-24 flex items-center justify-center bg-gray-100 dark:bg-[#2a2d3e] rounded-full cursor-pointer border-2 border-dashed border-gray-300 hover:border-primary transition mb-2">
+        <label htmlFor="order-image-upload" className="w-24 h-24 flex items-center justify-center bg-gray-100 dark:bg-[#2a2d3e] rounded-full cursor-pointer border-2 border-dashed border-gray-300 hover:border-primary transition mb-2">
           {image ? (
             <img src={image} alt="preview" className="w-24 h-24 object-cover rounded-full" />
           ) : (
             <span className="text-gray-400 text-3xl">+</span>
           )}
-          <input type="file" accept="image/*" onChange={handleImageChange} ref={fileInput} className="hidden" />
         </label>
+        <input id="order-image-upload" type="file" accept="image/*" onChange={handleImageChange} ref={fileInput} className="hidden" />
         <span className="text-xs text-gray-400">Resim Yükle</span>
       </div>
-      <input type="text" placeholder="Açıklama" value={desc} onChange={e => setDesc(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-40 md:w-48 bg-transparent transition" />
-      <input type="number" placeholder="Tutar" value={amount} onChange={e => setAmount(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition" />
-      <input type="text" placeholder="Müşteri Adı" value={customer} onChange={e => setCustomer(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-40 md:w-48 bg-transparent transition" />
-      <input type="text" placeholder="Lokasyon" value={location} onChange={e => setLocation(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition" />
-      <select value={status} onChange={e => setStatus(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition">
+      <input type="text" placeholder="Açıklama" value={desc} onChange={(e) => setDesc(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-40 md:w-48 bg-transparent transition" />
+      <input type="number" placeholder="Tutar" value={amount} onChange={(e) => setAmount(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition" />
+      <input type="text" placeholder="Müşteri Adı" value={customer} onChange={(e) => setCustomer(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-40 md:w-48 bg-transparent transition" />
+      <input type="text" placeholder="Lokasyon" value={location} onChange={(e) => setLocation(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition" />
+      <select value={status} onChange={(e) => setStatus(e.target.value)} className="border-0 border-b-2 border-gray-200 dark:bg-secondary-dark-bg focus:border-primary outline-none p-2 w-32 md:w-36 bg-transparent transition">
         <option value="pending">Beklemede</option>
         <option value="complete">Tamamlandı</option>
         <option value="active">Aktif</option>
